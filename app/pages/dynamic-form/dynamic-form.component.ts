@@ -84,18 +84,7 @@ export class FormControlService {
 
 @Component({
   selector:'df-field',
-  template:`
-<div [formGroup]="form" class="form-group">
-  <label [attr.for]="field.key" class="control-label">{{field.label}}</label>
-  <div [ngSwitch]="field.controlType">
-    <input *ngSwitchCase="'textbox'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control" [placeholder]="field.placeholder" [disabled]="field.disabled" [readonly]="field.readonly">
-    <select [id]="field.key" *ngSwitchWhen="'dropdown'" [formControlName]="field.key" class="form-control">
-      <option style="display:none" value="">Choose an option</option>
-      <option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</option>
-    </select>
-  </div>
-  <div style="color: red;" *ngIf="!isValid">({{field.label}} is required)</div>
-</div>`
+  templateUrl: 'build/pages/dynamic-form/df-field.html'
 })
 export class DynamicFormFieldComponent {
   @Input() field:FormBase<any>;
@@ -107,21 +96,7 @@ export class DynamicFormFieldComponent {
 
 @Component({
   selector:'dynamic-form',
-  template:`
-<div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="form">
-    <div *ngFor="let field of fields" class="form-row">
-      <df-field [field]="field" [form]="form"></df-field>
-    </div>
-    <div class="form-row">
-      <button type="submit" [disabled]="!form.valid" class="btn btn-success btn-md">Save</button>
-    </div>
-  </form>
-  
-  <div *ngIf="payLoad" class="form-row">
-    <br><strong>Saved the following values</strong><br>{{payLoad}}
-  </div>
-</div>`,
+  templateUrl: 'build/pages/dynamic-form/dynamic-form.html',
   directives: [DynamicFormFieldComponent],
   providers:  [FormControlService]
 })

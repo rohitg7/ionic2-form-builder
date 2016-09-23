@@ -1,0 +1,14 @@
+<div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="form">
+    <div *ngFor="let field of fields" class="form-row">
+      <df-field [field]="field" [form]="form"></df-field>
+    </div>
+    <div class="form-row">
+      <button type="submit" [disabled]="!form.valid" class="btn btn-success btn-md">Save</button>
+    </div>
+  </form>
+  
+  <div *ngIf="payLoad" class="form-row">
+    <br><strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>
