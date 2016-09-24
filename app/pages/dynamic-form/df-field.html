@@ -2,7 +2,7 @@
   <label [attr.for]="field.key" class="control-label">{{field.label}}</label>
   <div [ngSwitch]="field.controlType">
     <input *ngSwitchCase="'textbox'" [formControlName]="field.key" [id]="field.key" [type]="field.type" class="form-control" [placeholder]="field.placeholder" [disabled]="field.disabled" [readonly]="field.readonly">
-    <select [id]="field.key" *ngSwitchWhen="'dropdown'" [formControlName]="field.key" class="form-control">
+    <select [id]="field.key" *ngSwitchCase="'dropdown'" [formControlName]="field.key" class="form-control">
       <option style="display:none" value="">Choose an option</option>
       <option *ngFor="let opt of field.options" [value]="opt.key">{{opt.value}}</option>
     </select>

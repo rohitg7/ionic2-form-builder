@@ -1,1 +1,3 @@
-export { FormBase, TextboxField, DropdownField, FormControlService, DynamicFormFieldComponent, DynamicFormComponent } from './dynamic-form.component';
+export { FormControlService, DynamicFormComponent } from './dynamic-form.component';
+export { FormBase, TextboxField, DropdownField } from './formbase';
+export { DynamicFormFieldComponent } from './df-field.component';
