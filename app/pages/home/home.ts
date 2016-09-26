@@ -1,18 +1,28 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { SamplePage } from '../sample/sample';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { DynamicFormComponent } from '../dynamic-form';
+import { UserService }  from './user.service';
 
 @Component({
-  templateUrl: 'build/pages/home/home.html'
+  templateUrl: 'build/pages/home/home.html',
+  directives: [DynamicFormComponent],
+  providers:  [UserService]
 })
 export class HomePage {
-  constructor(public navCtrl: NavController) {
 
-  }
+	sampleForm: FormGroup;
+	fields:any[];
 
-	trigger ($event)
-	{
-		this.navCtrl.push(SamplePage);
-		console.log('button pressed');
+	constructor(public navCtrl: NavController, private formbuilder: FormBuilder, private service: UserService) {
+	  this.fields = service.getFields({});
 	}
+
+	onSubmit(event) {
+	  	console.log('Sample form data is ', this.sampleForm.value);
+	  }
+
+	save(event) {
+		console.log(event);
+		}
 }
