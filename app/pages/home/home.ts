@@ -24,5 +24,5 @@ export class HomePage {
 
 	save(event) {
 		console.log(event);
-		}
+	}
 }
