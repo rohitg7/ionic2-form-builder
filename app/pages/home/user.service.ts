@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { FormBase, TextboxField, DropdownField } from '../dynamic-form';
 
 ////////////////////////////////////////////////////////////////////////
@@ -57,7 +56,3 @@ export class UserService {
     return fields.sort((a,b) => a.order - b.order);
   }
 }
-
-
-////////////////////////////////////////////////////////////////////////
-

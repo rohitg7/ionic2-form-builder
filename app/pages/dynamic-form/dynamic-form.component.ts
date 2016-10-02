@@ -1,28 +1,8 @@
 import { Component, Injectable, Input, Output, EventEmitter } from '@angular/core';
 import { ControlGroup, FormBuilder, Validators } from '@angular/common';
 import { FormBase } from './formbase.ts';
+import { FormControlService } from './formcontrolservice.ts';
 import { DynamicFormFieldComponent } from './df-field.component';
-
-
-////////////////////////////////////////////////////////////////////////
-
-
-@Injectable()
-export class FormControlService {
-
-	constructor(private fb:FormBuilder){ }
-
-	toControlGroup(fields:FormBase<any>[] ) {
-		let group = {};
-
-		fields.forEach(field => {
-			group[field.key] = field.required ? [field.value || '', Validators.required] : [field.value || ''];
-		});
-		return this.fb.group(group);
-	}
-}
-
-////////////////////////////////////////////////////////////////////////
 
 @Component({
   selector:'dynamic-form',
