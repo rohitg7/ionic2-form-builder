@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormBase, TextboxField, DropdownField } from '../dynamic-form';
-
-////////////////////////////////////////////////////////////////////////
+import { FormBase, TextboxField, DropdownField } from '../dynamic_form_utils/formbase';
 
 @Injectable()
 export class UserService {
@@ -19,7 +17,7 @@ export class UserService {
         placeholder: 'Username',
         order: 1
       }),
-      
+
       new TextboxField({
         key:'email',
         label:'Email',
@@ -52,7 +50,7 @@ export class UserService {
       }),
     ];
 
- 
+
     return fields.sort((a,b) => a.order - b.order);
   }
 }

@@ -1,11 +1,11 @@
-import { Component, Injectable, Input, Output, EventEmitter } from '@angular/core';
-import { ControlGroup, FormBuilder, Validators } from '@angular/common';
-import { FormBase } from './formbase.ts';
+import { Injectable }              from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms'; 
+import { FormBase }                from './formbase';
 
 @Injectable()
 export class FormControlService {
 
-	constructor(private fb:FormBuilder){ }
+	constructor(public fb:FormBuilder){ }
 
 	toControlGroup(fields:FormBase<any>[] ) {
 		let group = {};
